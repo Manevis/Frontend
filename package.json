@@ -1,12 +1,15 @@
 {
-  "dependencies": {
-    "next": "^9.2.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+  "name": "autor",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
-  "devDependencies": {
-    "@types/node": "^13.1.8",
-    "@types/react": "^16.9.17",
-    "typescript": "^3.7.5"
+  "dependencies": {
+    "next": "9.2.1",
+    "react": "16.12.0",
+    "react-dom": "16.12.0"
   }
 }
