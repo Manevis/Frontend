@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b5f929c-7a5d-4a86-989f-b444ab42eee2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-env.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/post/post.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/post/post.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/frontend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/frontend.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,7 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../backend" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1Wa7EnOBfiJy9ngMXNMwCxlrHCt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -32,7 +33,13 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../backend" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\TrueMoein\AppData\Roaming\npm\node_modules\prettier" />
-    <property name="ts.external.directory.path" value="I:\Autor.ir\frontend\node_modules\typescript\lib" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="ts.external.directory.path" value="I:\Autor.ir\backend\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="I:\Autor.ir\frontend" />
+    </key>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -61,7 +68,8 @@
       <workItem from="1579891512422" duration="601000" />
       <workItem from="1581442323719" duration="2320000" />
       <workItem from="1581536201365" duration="18000" />
-      <workItem from="1581715411153" duration="540000" />
+      <workItem from="1581715411153" duration="1055000" />
+      <workItem from="1581716685727" duration="4453000" />
     </task>
     <servers />
   </component>
@@ -69,9 +77,33 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="640" y="291" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1581716370929">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="640" y="291" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1581716370929" />
+    <state x="695" y="389" key="#com.intellij.tools.ToolEditorDialog" timestamp="1581716335287">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="695" y="389" key="#com.intellij.tools.ToolEditorDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1581716335287" />
     <state x="740" y="310" key="FileChooserDialogImpl" timestamp="1581715418554">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="740" y="310" key="FileChooserDialogImpl/0.30.1920.1050@0.30.1920.1050" timestamp="1581715418554" />
+    <state x="461" y="198" key="SettingsEditor" timestamp="1581718395118">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="461" y="198" key="SettingsEditor/0.30.1920.1050@0.30.1920.1050" timestamp="1581718395118" />
+    <state x="715" y="400" key="cloudConfig.SelfSettingsDialog" timestamp="1581716233230">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="715" y="400" key="cloudConfig.SelfSettingsDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1581716233230" />
+    <state x="639" y="293" width="645" height="524" key="find.popup" timestamp="1581716267681">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="639" y="293" width="645" height="524" key="find.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1581716267681" />
+    <state x="623" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1581719394280">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="623" y="257" width="672" height="678" key="search.everywhere.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1581719394280" />
   </component>
 </project>
