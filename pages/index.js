@@ -2,12 +2,11 @@ import React from "react";
 import Head from "next/head";
 import Nav from "../components/nav";
 
-import fetch from "isomorphic-unfetch";
 import Link from "next/link";
-import {encodeId, postSlug} from "../utils/hashId";
+import { postSlug } from "../utils/hashId";
+import { Get } from "../utils/request";
 
 const Home = props => {
-  console.log(props);
   return (
     <div>
       <Head>
@@ -23,10 +22,27 @@ const Home = props => {
             as={`@${post.user.username}/${postSlug(post.title, post.id)}`}
           >
             <a>
-              <h4>{post.title}</h4>
+              <h1>{post.title}</h1>
             </a>
           </Link>
           <p>{post.content}</p>
+          {post.labels?.map(label => (
+            <Link
+              key={label.id}
+              href="/labels/[label]"
+              as={`/labels/${label.id}`}
+            >
+              <a style={{ padding: 5 }}>{label.name}</a>
+            </Link>
+          ))}
+
+          {post.subject && (
+            <Link href="/subjects/[subject]" as={`/subjects/${post.subject.id}`}>
+              <a>
+                <h4>{post.subject.name}</h4>
+              </a>
+            </Link>
+          )}
         </div>
       ))}
     </div>
@@ -34,9 +50,7 @@ const Home = props => {
 };
 
 Home.getInitialProps = async () => {
-  const res = await fetch("http://localhost:8888/api/posts");
-  const json = await res.json();
-  return { ...json };
+  return await Get("posts");
 };
 
 export default Home;

@@ -1,33 +1,28 @@
-import React from 'react';
-import fetch from 'isomorphic-unfetch'
+import React from "react";
+import { Post } from "../../../utils/request";
 
 const EmailValidation = props => {
-  console.log(props);
-  return (
-    <h1>validation.</h1>
-  )
+  return <h1>validation.</h1>;
 };
 
 EmailValidation.getInitialProps = async ctx => {
-  const result = await fetch(`http://localhost:8888/api/users/register/email-validation`,
-    {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({
+  const result = await Post(
+    `users/register/email-validation`,
+    {
       emailValidationToken: ctx.query.emailValidationToken
-    })});
+    }
+  );
 
-  const json = await result.json();
-
-  if(!json.ok) {
-    if(ctx.res) {
+  if (!result.ok) {
+    if (ctx.res) {
       ctx.res.writeHead(302, {
-        Location: '/'
+        Location: "/"
       });
       ctx.res.end();
     }
   }
 
-  console.log(json)
-
-  return json;
+  return result;
 };
 
 export default EmailValidation;
