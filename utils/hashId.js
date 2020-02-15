@@ -12,3 +12,9 @@ export const postSlug = (postTitle, postId) => {
 
   return titleArr.join("-");
 };
+
+export const postId = slug => {
+  const slugArr = slug.split('-');
+
+  return decodeId(slugArr.reverse()[0]);
+};

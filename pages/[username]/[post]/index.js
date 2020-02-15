@@ -1,6 +1,6 @@
 import React from "react";
 import fetch from "isomorphic-unfetch";
-import { postSlug } from "../../../utils/hashId";
+import {postId, postSlug} from "../../../utils/hashId";
 
 const Post = props => {
   return (
@@ -14,18 +14,29 @@ const Post = props => {
 };
 
 Post.getInitialProps = async ctx => {
-  const res = await fetch(
-    `http://localhost:8888/api/posts/${encodeURI(ctx.query.post)}`
-  );
-  // if (json.slug !== ctx.query.post) {
-  //   if (ctx.res) {
-  //     ctx.res.writeHead(301, {
-  //       Location: `/${postSlug(json.title, json.id)}`
-  //     });
-  //     ctx.res.end();
-  //   }
-  // }
-  return await res.json();
+  try {
+    const res = await fetch(
+      `http://localhost:8888/api/posts/${postId(ctx.query.post)}`
+    );
+    const json = await res.json();
+    const slug = postSlug(json.title, json.id);
+    if (slug !== ctx.query.post) {
+      if (ctx.res) {
+        ctx.res.writeHead(301, {
+          Location: encodeURI(`/@${json.user.username}/${slug}`)
+        });
+        ctx.res.end();
+      }
+    }
+    return json;
+  } catch (e) {
+    if(ctx.res) {
+      ctx.res.writeHead(302, {
+        Location: '/not-found'
+      });
+      ctx.res.end();
+    }
+  }
 };
 
 export default Post;
