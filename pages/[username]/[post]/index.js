@@ -2,10 +2,11 @@ import React from "react";
 import { postId, postSlug } from "../../../utils/hashId";
 import { Get } from "../../../utils/request";
 import Head from "next/head";
+import Layout from "../../../components/Layout/Layout";
 
 const Post = props => {
   return (
-    <>
+    <Layout>
       <Head>
         <title>
           {props.title} - نوشته {" "}
@@ -18,7 +19,7 @@ const Post = props => {
 
         <pre>{props.subject?.name}</pre>
       </div>
-    </>
+    </Layout>
   );
 };
 

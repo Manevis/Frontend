@@ -1,14 +1,15 @@
 import React from "react";
 import { Get } from "../../../utils/request";
 import Head from "next/head";
+import Layout from "../../../components/Layout/Layout";
 
 const LabelPosts = props => {
   console.log(props);
 
   return (
-    <>
+    <Layout>
       <Head>
-        <title>مقالاتی با موضوع تکنولوژی</title>
+        <title>مقالاتی با موضوع {props.label.name}</title>
       </Head>
       <div>
         {props.posts.map(post => (
@@ -21,7 +22,7 @@ const LabelPosts = props => {
           </div>
         ))}
       </div>
-    </>
+    </Layout>
   );
 };
 

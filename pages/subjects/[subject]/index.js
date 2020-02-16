@@ -1,12 +1,13 @@
 import React from "react";
 import { Get } from "../../../utils/request";
 import Head from "next/head";
+import Layout from "../../../components/Layout/Layout";
 
 const SubjectPosts = props => {
   return (
-    <>
+    <Layout>
       <Head>
-        <title>مقالاتی با موضوع علمی</title>
+        <title>مقالاتی با موضوع {props.subject.name}</title>
       </Head>
       <div>
         {props.posts.map(post => (
@@ -19,7 +20,7 @@ const SubjectPosts = props => {
           </div>
         ))}
       </div>
-    </>
+    </Layout>
   );
 };
 

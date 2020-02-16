@@ -1,19 +1,18 @@
 import React from "react";
 import Head from "next/head";
-import Nav from "../components/nav";
 
 import Link from "next/link";
 import { postSlug } from "../utils/hashId";
 import { Get } from "../utils/request";
+import Layout from "../components/Layout/Layout";
 
 const Home = props => {
   return (
-    <div>
+    <Layout>
       <Head>
-        <title>Autor.iR</title>
+        <title>Autor</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Nav />
 
       {props.posts.map(post => (
         <div key={post.id}>
@@ -45,7 +44,7 @@ const Home = props => {
           )}
         </div>
       ))}
-    </div>
+    </Layout>
   );
 };
 
