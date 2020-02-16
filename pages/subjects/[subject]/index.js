@@ -1,14 +1,10 @@
 import React from "react";
 import { Get } from "../../../utils/request";
-import Head from "next/head";
-import Layout from "../../../components/Layout/Layout";
+import Layout from "../../../components/Layout";
 
 const SubjectPosts = props => {
   return (
-    <Layout>
-      <Head>
-        <title>مقالاتی با موضوع {props.subject.name}</title>
-      </Head>
+    <Layout title={`مقالاتی با موضوع ${props.subject.name}`}>
       <div>
         {props.posts.map(post => (
           <div key={post.id}>

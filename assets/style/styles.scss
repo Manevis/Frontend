@@ -1,0 +1,12 @@
+@import "variables";
+
+body {
+    background-color: $background_color_main;
+    font-family: Tahoma, sans-serif;
+    direction: rtl;
+    text-align: inherit;
+}
+
+img {
+    max-width: 100%;
+}

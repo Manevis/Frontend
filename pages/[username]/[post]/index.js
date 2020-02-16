@@ -1,18 +1,11 @@
 import React from "react";
 import { postId, postSlug } from "../../../utils/hashId";
 import { Get } from "../../../utils/request";
-import Head from "next/head";
-import Layout from "../../../components/Layout/Layout";
+import Layout from "../../../components/Layout";
 
 const Post = props => {
   return (
-    <Layout>
-      <Head>
-        <title>
-          {props.title} - نوشته {" "}
-          {`${props.user.firstName} ${props.user.lastName}`}{" "}
-        </title>
-      </Head>
+    <Layout title={`${props.title} - نوشته ${props.user.firstName} ${props.user.lastName}`}>
       <div>
         <h1>{props.title}</h1>
         <p>{props.content}</p>
