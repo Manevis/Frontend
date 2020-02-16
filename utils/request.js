@@ -1,7 +1,7 @@
 import unfetch from "isomorphic-unfetch";
 
-const baseURL = "http://localhost:8888/api/";
-const URL = url => (url.startsWith("http") ? url : `${baseURL}${url}`);
+export const baseURL = "http://localhost:8888/api/";
+export const URL = url => (url.startsWith("http") ? url : `${baseURL}${url}`);
 
 export const Get = async url => {
   const request = await unfetch(URL(url), {

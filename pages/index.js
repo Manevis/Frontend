@@ -3,7 +3,7 @@ import Head from "next/head";
 
 import Link from "next/link";
 import { postSlug } from "../utils/hashId";
-import { Get } from "../utils/request";
+import { Get, URL } from "../utils/request";
 import Layout from "../components/Layout/Layout";
 
 const Home = props => {
@@ -16,6 +16,7 @@ const Home = props => {
 
       {props.posts.map(post => (
         <div key={post.id}>
+          <img src={URL(`photos/${post.cover}/file`)} alt={post.title}/>
           <Link
             href="/[username]/[post]"
             as={`@${post.user.username}/${postSlug(post.title, post.id)}`}

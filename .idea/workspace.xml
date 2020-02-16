@@ -2,17 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b5f929c-7a5d-4a86-989f-b444ab42eee2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Backend/src/label/label.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/label/label.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/src/post/post.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/post/post.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/src/post/post.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/post/post.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/src/label/label.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/label/label.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/src/photo/photo.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/photo/photo.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/src/post/post.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/post/post.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/src/subject/subject.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/subject/subject.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/src/users/user.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/users/user.entity.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Layout/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/nav.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/[username]/[post]/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/[username]/[post]/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/labels/[label]/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/labels/[label]/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/registration/email-validation/[emailValidationToken].js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/registration/email-validation/[emailValidationToken].js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/subjects/[subject]/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/subjects/[subject]/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/request.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +47,7 @@
     <select />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../Backend" />
   </component>
   <component name="ProjectId" id="1Wa7EnOBfiJy9ngMXNMwCxlrHCt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -65,10 +62,11 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="editorconfig.notification" value="null" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../backend" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\TrueMoein\AppData\Roaming\npm\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
     <property name="ts.external.directory.path" value="C:\Kian-Projects\Autor\Backend\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
@@ -107,7 +105,7 @@
       <workItem from="1581715411153" duration="1055000" />
       <workItem from="1581716685727" duration="5089000" />
       <workItem from="1581783432476" duration="14575000" />
-      <workItem from="1581836572498" duration="2362000" />
+      <workItem from="1581836572498" duration="15942000" />
     </task>
     <servers />
   </component>
@@ -132,23 +130,24 @@
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="740" y="310" key="FileChooserDialogImpl/0.30.1920.1050@0.30.1920.1050" timestamp="1581715418554" />
-    <state x="461" y="198" key="SettingsEditor" timestamp="1581836312008">
+    <state x="456" y="172" key="SettingsEditor" timestamp="1581849805183">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="461" y="198" key="SettingsEditor/0.30.1920.1050/1920.212.1366.738@0.30.1920.1050" timestamp="1581836312008" />
+    <state x="456" y="172" key="SettingsEditor/0.30.1920.1050/1920.212.1366.738@0.30.1920.1050" timestamp="1581849805183" />
     <state x="461" y="198" key="SettingsEditor/0.30.1920.1050@0.30.1920.1050" timestamp="1581718395118" />
     <state x="715" y="400" key="cloudConfig.SelfSettingsDialog" timestamp="1581716233230">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="715" y="400" key="cloudConfig.SelfSettingsDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1581716233230" />
-    <state x="639" y="293" width="645" height="528" key="find.popup" timestamp="1581837232458">
+    <state x="639" y="293" width="758" height="598" key="find.popup" timestamp="1581853784373">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="639" y="293" width="645" height="528" key="find.popup/0.30.1920.1050/1920.212.1366.738@0.30.1920.1050" timestamp="1581837232458" />
+    <state x="639" y="293" width="758" height="598" key="find.popup/0.30.1920.1050/1920.212.1366.738@0.30.1920.1050" timestamp="1581853784373" />
     <state x="639" y="293" width="645" height="524" key="find.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1581799304420" />
-    <state x="623" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1581783550032">
+    <state x="623" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1581853662065">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
+    <state x="623" y="257" width="672" height="678" key="search.everywhere.popup/0.30.1920.1050/1920.212.1366.738@0.30.1920.1050" timestamp="1581853662065" />
     <state x="623" y="257" width="672" height="678" key="search.everywhere.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1581783550032" />
   </component>
 </project>
