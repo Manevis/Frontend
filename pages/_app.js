@@ -1,12 +1,17 @@
-import 'bootstrap/scss/bootstrap-reboot.scss'
-import 'bootstrap/scss/bootstrap-grid.scss'
-import '../assets/style/styles.scss'
+import React from "react";
+import "bootstrap/scss/bootstrap-reboot.scss";
+import "bootstrap/scss/bootstrap-grid.scss";
+import "../assets/style/styles.scss";
 import Layout from "../components/Layout";
+import UserProvider from "../components/_Context_/UserContext";
 
-const MyApp = ({ Component, pageProps }) => (
-  <Layout seo={pageProps.SEO}>
-    <Component {...pageProps} />
-  </Layout>
-);
-
-export default MyApp;
+export default props => {
+  const { Component, pageProps } = props;
+  return (
+    <UserProvider>
+      <Layout seo={pageProps.SEO}>
+        <Component {...pageProps} />
+      </Layout>
+    </UserProvider>
+  );
+};

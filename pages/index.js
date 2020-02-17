@@ -12,9 +12,6 @@ Home.getInitialProps = async () => {
   const postsResponse = await Get("posts");
   return {
     postsResponse,
-    SEO: {
-      title: 'AUTOR'
-    },
   };
 };
 

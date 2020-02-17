@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { postId, postSlug } from "../../../utils/hashId";
 import { Get } from "../../../utils/request";
-import {SEOGenerator, SEOGeneratorTypes} from "../../../utils/SEOGenerator";
+import { SEOGenerator, SEOGeneratorTypes } from "../../../utils/SEOGenerator";
+import { UserContext } from "../../../components/_Context_/UserContext";
 
 const Post = props => {
+  const user = useContext(UserContext);
+  console.log(user);
   return (
     <div>
       <h1>{props.title}</h1>
