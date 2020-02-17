@@ -1,6 +1,7 @@
 import React from "react";
 import { postId, postSlug } from "../../../utils/hashId";
 import { Get } from "../../../utils/request";
+import {SEOGenerator, SEOGeneratorTypes} from "../../../utils/SEOGenerator";
 
 const Post = props => {
   return (
@@ -27,9 +28,7 @@ Post.getInitialProps = async ctx => {
     }
     return {
       ...result,
-      SEO: {
-        title: `${result.title} - نوشته ${result.user.firstName} ${result.user.lastName}`
-      }
+      SEO: SEOGenerator(result, SEOGeneratorTypes.POST)
     };
   } catch (e) {
     if (ctx.res) {

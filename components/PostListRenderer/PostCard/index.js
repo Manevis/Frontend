@@ -12,7 +12,7 @@ const PostCard = ({ post }) => {
         href="/[username]/[post]"
         as={`@${post.user.username}/${postSlug(post.title, post.id)}`}
       >
-        <a>
+        <a className={styles.image}>
           <img src={URL(`photos/${post.cover}/file`)} alt={post.title} />
         </a>
       </Link>

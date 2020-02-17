@@ -1,5 +1,6 @@
 import React from "react";
 import { Get } from "../../../utils/request";
+import {SEOGenerator, SEOGeneratorTypes} from "../../../utils/SEOGenerator";
 
 const LabelPosts = props => {
   console.log(props);
@@ -20,7 +21,12 @@ const LabelPosts = props => {
 };
 
 LabelPosts.getInitialProps = async ctx => {
-  return await Get(`posts?label=${ctx.query.label}`);
+  const label = await Get(`posts?label=${ctx.query.label}`);
+
+  return {
+    ...label,
+    seo: SEOGenerator(label, SEOGeneratorTypes.LABEL),
+  }
 };
 
 export default LabelPosts;

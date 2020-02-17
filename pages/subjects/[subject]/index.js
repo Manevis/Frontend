@@ -1,6 +1,6 @@
 import React from "react";
 import { Get } from "../../../utils/request";
-import Layout from "../../../components/Layout";
+import {SEOGenerator, SEOGeneratorTypes} from "../../../utils/SEOGenerator";
 
 const SubjectPosts = props => {
   return (
@@ -19,7 +19,11 @@ const SubjectPosts = props => {
 };
 
 SubjectPosts.getInitialProps = async ctx => {
-  return await Get(`posts?subject=${ctx.query.subject}`);
+  const subject = await Get(`posts?subject=${ctx.query.subject}`);
+  return {
+    ...subject,
+    SEO: SEOGenerator(subject, SEOGeneratorTypes.SUBJECT),
+  };
 };
 
 export default SubjectPosts;
