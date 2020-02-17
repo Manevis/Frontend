@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import LoginModal from "./Modals/Login.modal";
 
@@ -10,7 +10,13 @@ const modalsRepository = {
 };
 
 const ModalRoot = () => {
-  const [modals] = React.useContext(ModalContext);
+  const { modals } = React.useContext(ModalContext);
+
+  useEffect(() => {
+    document.querySelector("body").style.overflow = modals.length
+      ? "hidden"
+      : "unset";
+  }, [modals]);
 
   return modals.map(modal => {
     const ModalComponent = modalsRepository[modal.type];

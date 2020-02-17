@@ -24,7 +24,7 @@ const ModalProvider = ({ children }) => {
   };
 
   return (
-    <ModalContext.Provider value={[modals, modalActions]}>
+    <ModalContext.Provider value={{modals, modalActions}}>
       {children}
     </ModalContext.Provider>
   );

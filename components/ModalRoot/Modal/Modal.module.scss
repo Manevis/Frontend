@@ -1,13 +1,34 @@
+@import "../../../assets/style/variables";
+
 .root {
   position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContentBox {
   z-index: 5;
   background: white;
-  overflow: hidden;
+  padding: 0;
+}
+
+.content {
+  padding: 15px;
+}
+
+.title {
+  background: $primary_color;
+  padding: 5px 15px;
+  color: white;
 }
 
 .shadow {
-  z-index: 3;
-  background: rgba(0,0,0, 0.71);
+  z-index: 4;
+  background: rgba(0, 0, 0, 0.71);
   position: absolute;
   top: 0;
   left: 0;
