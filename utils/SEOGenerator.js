@@ -12,15 +12,15 @@ const postSEO = data => ({
 });
 
 const labelSEO = data => ({
-  title: `آخرین مقالات مربوط به ${data.name}`,
-  keywords: data.name,
-  description: `آخرین مقالات و نوشته‌های روز در حوزه ${data.name}`,
+  title: `آخرین مقالات مربوط به ${data.label.name}`,
+  keywords: data.label.name,
+  description: `آخرین مقالات و نوشته‌های روز در حوزه ${data.label.name}`,
 });
 
 const subjectSEO = data => ({
-  title: `آخرین مقالات با موضوع ${data.name}`,
-  keywords: data.name,
-  description: `آخرین مقالات و نوشته‌های روز در حوزه ${data.name}`,
+  title: `آخرین مقالات با موضوع ${data.subject.name}`,
+  keywords: data.subject.name,
+  description: `آخرین مقالات و نوشته‌های روز در حوزه ${data.subject.name}`,
 });
 
 export const SEOGenerator = (data, type) => {

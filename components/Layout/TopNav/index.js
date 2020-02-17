@@ -1,33 +1,24 @@
 import React from "react";
 import Link from "next/link";
-import styles from './styles.module.scss';
+import cs from "classnames";
+import styles from "./styles.module.scss";
+import { ModalContext } from "../../_Context_/ModalContext";
+import { LOGIN_MODAL } from "../../ModalRoot/constans";
 
 const TopMenu = props => {
+  const [modals, modalActions] = React.useContext(ModalContext);
   return (
-    <header className="container">
-      <nav className={styles.topMenu}>
+    <header>
+      <nav className={cs(styles.topMenu, "container-fluid")}>
         <Link href="/">
           <a>
-            <img src="/logo.png" alt="Autor.ir"/>
+            <img src="/logo.png" alt="Autor.ir" />
           </a>
         </Link>
-        <ul>
-          <li>
-            <Link href="/">
-              <a>Home</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/about">
-              <a>About</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact">
-              <a>Contact</a>
-            </Link>
-          </li>
-        </ul>
+
+        <button onClick={() => modalActions.showModal({ type: LOGIN_MODAL })}>
+          login
+        </button>
       </nav>
     </header>
   );

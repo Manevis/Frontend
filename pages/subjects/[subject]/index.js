@@ -1,28 +1,19 @@
 import React from "react";
 import { Get } from "../../../utils/request";
 import {SEOGenerator, SEOGeneratorTypes} from "../../../utils/SEOGenerator";
+import PostListRenderer from '../../../components/PostListRenderer';
 
 const SubjectPosts = props => {
   return (
-    <div>
-      {props.posts.map(post => (
-        <div key={post.id}>
-          <div>
-            <h1>{post.title}</h1>
-            <p>{post.content}</p>
-          </div>
-          <hr />
-        </div>
-      ))}
-    </div>
+    <PostListRenderer postsResponse={props.postsResponse} />
   );
 };
 
 SubjectPosts.getInitialProps = async ctx => {
-  const subject = await Get(`posts?subject=${ctx.query.subject}`);
+  const postsResponse = await Get(`posts?subject=${ctx.query.subject}`);
   return {
-    ...subject,
-    SEO: SEOGenerator(subject, SEOGeneratorTypes.SUBJECT),
+    postsResponse,
+    SEO: SEOGenerator(postsResponse, SEOGeneratorTypes.SUBJECT),
   };
 };
 

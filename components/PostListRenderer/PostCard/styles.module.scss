@@ -1,9 +1,37 @@
+@import "../../../assets/style/variables";
+
 .postCard {
   background: white;
+  margin-bottom: 20px;
+  border-radius: $border_radius_main;
+  overflow: hidden;
 }
 
 .image {
+  height: 350px;
+  position: relative;
+
   img {
-    border-radius: 5px;
+    object-fit: cover;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
   }
+}
+
+.subject {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  background: blue;
+  color: white;
+  padding: 0 5px;
+  border-radius: 0 $border_radius_main $border_radius_main 0;
+}
+
+.labels {
+  text-align: left;
 }

@@ -3,11 +3,13 @@ import PropTypes from "prop-types";
 import TopMenu from "./TopNav";
 import Footer from "./Footer";
 import SEO from "../_SEO_";
+import ModalRoot from '../ModalRoot';
 
 const Layout = ({children, seo}) => {
   return (
     <>
       <SEO seo={seo} />
+      <ModalRoot />
       <TopMenu />
       <main>
         {children}
