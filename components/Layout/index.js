@@ -4,15 +4,13 @@ import TopMenu from "./TopNav";
 import Footer from "./Footer";
 import SEO from "../_SEO_";
 
-const Layout = props => {
+const Layout = ({children, seo}) => {
   return (
     <>
-      <SEO title={props.title} />
+      <SEO seo={seo} />
       <TopMenu />
-      <main className="container">
-        <div className="row">
-          {props.children}
-        </div>
+      <main>
+        {children}
       </main>
       <Footer />
     </>
@@ -20,7 +18,11 @@ const Layout = props => {
 };
 
 Layout.propTypes = {
-  title: PropTypes.string.isRequired
+  seo: PropTypes.object
+};
+
+Layout.defaultProps = {
+  seo: {}
 };
 
 export default Layout;

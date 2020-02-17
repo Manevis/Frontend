@@ -1,8 +1,12 @@
 import 'bootstrap/scss/bootstrap-reboot.scss'
 import 'bootstrap/scss/bootstrap-grid.scss'
 import '../assets/style/styles.scss'
+import Layout from "../components/Layout";
 
-// This default export is required in a new `pages/_app.js` file.
-export default function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+const MyApp = ({ Component, pageProps }) => (
+  <Layout seo={pageProps.SEO}>
+    <Component {...pageProps} />
+  </Layout>
+);
+
+export default MyApp;

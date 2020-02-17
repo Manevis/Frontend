@@ -4,19 +4,17 @@ import Layout from "../../../components/Layout";
 
 const SubjectPosts = props => {
   return (
-    <Layout title={`مقالاتی با موضوع ${props.subject.name}`}>
-      <div>
-        {props.posts.map(post => (
-          <div key={post.id}>
-            <div>
-              <h1>{post.title}</h1>
-              <p>{post.content}</p>
-            </div>
-            <hr />
+    <div>
+      {props.posts.map(post => (
+        <div key={post.id}>
+          <div>
+            <h1>{post.title}</h1>
+            <p>{post.content}</p>
           </div>
-        ))}
-      </div>
-    </Layout>
+          <hr />
+        </div>
+      ))}
+    </div>
   );
 };
 

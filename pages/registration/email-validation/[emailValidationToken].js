@@ -1,9 +1,8 @@
 import React from "react";
 import { Post } from "../../../utils/request";
-import Layout from "../../../components/Layout";
 
 const EmailValidation = props => {
-  return <Layout title="validation">validation.</Layout>;
+  return <div>validation</div>;
 };
 
 EmailValidation.getInitialProps = async ctx => {

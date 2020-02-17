@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styles from "./styles.scss";
+import styles from "./styles.module.scss";
 import { URL } from "../../../utils/request";
 import { postSlug } from "../../../utils/hashId";
 import Link from "next/link";

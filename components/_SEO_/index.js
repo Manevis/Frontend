@@ -2,10 +2,10 @@ import React from "react";
 import Head from "next/head";
 import PropTypes from "prop-types";
 
-const SEO = props => {
+const SEO = ({seo}) => {
   return (
     <Head>
-      <title>{props.title}</title>
+      <title>{seo.title || 'Autor.iR'}</title>
       <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
       <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     </Head>
@@ -13,7 +13,7 @@ const SEO = props => {
 };
 
 SEO.propTypes = {
-  title: PropTypes.string.isRequired
+  seo: PropTypes.object.isRequired
 };
 
 export default SEO;

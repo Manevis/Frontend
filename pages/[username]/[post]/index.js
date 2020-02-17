@@ -1,18 +1,15 @@
 import React from "react";
 import { postId, postSlug } from "../../../utils/hashId";
 import { Get } from "../../../utils/request";
-import Layout from "../../../components/Layout";
 
 const Post = props => {
   return (
-    <Layout title={`${props.title} - نوشته ${props.user.firstName} ${props.user.lastName}`}>
-      <div>
-        <h1>{props.title}</h1>
-        <p>{props.content}</p>
+    <div>
+      <h1>{props.title}</h1>
+      <p>{props.content}</p>
 
-        <pre>{props.subject?.name}</pre>
-      </div>
-    </Layout>
+      <pre>{props.subject?.name}</pre>
+    </div>
   );
 };
 
@@ -28,7 +25,12 @@ Post.getInitialProps = async ctx => {
         ctx.res.end();
       }
     }
-    return result;
+    return {
+      ...result,
+      SEO: {
+        title: `${result.title} - نوشته ${result.user.firstName} ${result.user.lastName}`
+      }
+    };
   } catch (e) {
     if (ctx.res) {
       ctx.res.writeHead(302, {
