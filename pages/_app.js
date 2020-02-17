@@ -5,8 +5,7 @@ import "../assets/style/styles.scss";
 import Layout from "../components/Layout";
 import UserProvider from "../components/_Context_/UserContext";
 
-export default props => {
-  const { Component, pageProps } = props;
+export default ({ Component, pageProps }) => {
   return (
     <UserProvider>
       <Layout seo={pageProps.SEO}>
