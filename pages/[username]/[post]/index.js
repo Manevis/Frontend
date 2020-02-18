@@ -2,7 +2,7 @@ import React from "react";
 import cs from 'classnames';
 import { postId, postSlug } from "../../../utils/hashId";
 import { Get } from '../../../utils/request';
-import { SEOGenerator, SEOGeneratorTypes } from "../../../utils/SEOGenerator";
+import { SEOGenerator, SEOGeneratorTypes } from "../../../components/_SEO_/SEOGenerator";
 import SinglePost from '../../../components/SinglePost';
 
 const Post = props => {

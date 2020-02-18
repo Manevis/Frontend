@@ -1,6 +1,6 @@
 import React from "react";
 import { Get } from "../../../utils/request";
-import {SEOGenerator, SEOGeneratorTypes} from "../../../utils/SEOGenerator";
+import {SEOGenerator, SEOGeneratorTypes} from "../../../components/_SEO_/SEOGenerator";
 import PostListRenderer from '../../../components/PostListRenderer';
 
 const LabelPosts = props => {
