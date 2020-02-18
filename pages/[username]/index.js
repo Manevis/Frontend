@@ -1,6 +1,9 @@
 import React from "react";
 import { Get } from "../../utils/request";
-import { SEOGenerator, SEOGeneratorTypes } from "../../components/_SEO_/SEOGenerator";
+import {
+  SEOGenerator,
+  SEOGeneratorTypes
+} from "../../components/_SEO_/SEOGenerator";
 import PostListRenderer from "../../components/PostListRenderer";
 import styles from "./UserPublicProfile.module.scss";
 import { fullName } from "../../utils/string";
@@ -25,10 +28,19 @@ UserPublicProfile.getInitialProps = async ctx => {
   const postsResponse = await Get(
     `posts?user=${ctx.query.username.substring(1)}`
   );
-  return {
-    postsResponse,
-    SEO: SEOGenerator(postsResponse, SEOGeneratorTypes.USER)
-  };
+  if(postsResponse.statusCode === 404) {
+    if (ctx.res) {
+      ctx.res.writeHead(302, {
+        Location: "/"
+      });
+      ctx.res.end();
+    }
+  } else {
+    return {
+      postsResponse,
+      SEO: SEOGenerator(postsResponse, SEOGeneratorTypes.USER)
+    };
+  }
 };
 
 export default UserPublicProfile;

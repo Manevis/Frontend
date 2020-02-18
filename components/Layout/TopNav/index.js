@@ -2,16 +2,8 @@ import React from "react";
 import Link from "next/link";
 import cs from "classnames";
 import styles from "./styles.module.scss";
-import { ModalContext } from "../../_Context_/ModalContext";
-import { LOGIN_MODAL } from "../../ModalRoot/constans";
 
 const TopMenu = () => {
-  const { modalActions } = React.useContext(ModalContext);
-
-  const showLoginModal = () => {
-    modalActions.showModal({ type: LOGIN_MODAL });
-  };
-
   return (
     <header>
       <nav className={cs(styles.topMenu, "container-fluid")}>
@@ -21,7 +13,9 @@ const TopMenu = () => {
           </a>
         </Link>
 
-        <button onClick={showLoginModal}>login</button>
+        <Link href="/entrance">
+          <a>ورود / ثبت‌نام</a>
+        </Link>
       </nav>
     </header>
   );
