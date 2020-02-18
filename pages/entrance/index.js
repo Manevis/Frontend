@@ -5,7 +5,6 @@ import Link from "next/link";
 
 const Entrance = props => {
   const [email, setEmail] = useState('');
-  state
 
   return <div className={cs(styles.root, 'container')}>
     <div className="row justify-content-center align-items-center vh-100 flex-column">
