@@ -7,20 +7,17 @@ import UserProvider from "../components/_Context_/UserContext";
 import ModalProvider from "../components/_Context_/ModalContext";
 import SEO from "../components/_SEO_";
 
-export default ({ Component, pageProps }) =>
-  pageProps.noLayout ? (
-    <main>
+export default ({ Component, pageProps }) => (
+  <UserProvider>
+    <ModalProvider>
       <SEO seo={pageProps.SEO} />
-      <UserProvider>
+      {pageProps.noLayout ? (
         <Component {...pageProps} />
-      </UserProvider>
-    </main>
-  ) : (
-    <UserProvider>
-      <ModalProvider>
-        <Layout seo={pageProps.SEO}>
+      ) : (
+        <Layout>
           <Component {...pageProps} />
         </Layout>
-      </ModalProvider>
-    </UserProvider>
-  );
+      )}
+    </ModalProvider>
+  </UserProvider>
+);
