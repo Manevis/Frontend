@@ -1,6 +1,6 @@
 import unfetch from "isomorphic-unfetch";
 
-export const baseURL = "http://192.168.30.121:8888/api/";
+export const baseURL = "http://localhost:8888/api/";
 export const URL = url => (url.startsWith("http") ? url : `${baseURL}${url}`);
 
 export const Get = async url => {

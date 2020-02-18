@@ -11,7 +11,9 @@ export default ({ Component, pageProps }) =>
   pageProps.noLayout ? (
     <main>
       <SEO seo={pageProps.SEO} />
-      <Component {...pageProps} />
+      <UserProvider>
+        <Component {...pageProps} />
+      </UserProvider>
     </main>
   ) : (
     <UserProvider>
