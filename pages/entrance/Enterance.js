@@ -36,8 +36,8 @@ const Entrance = props => {
   };
 
   useEffect(() => {
-    if (userStatus === "CONFIRMED_USER") {
-      return router.replace("registration/register");
+    if (userStatus === "CONFIRMED_EMAIL") {
+      router.replace("/registration/register");
     }
   }, [userStatus]);
 
