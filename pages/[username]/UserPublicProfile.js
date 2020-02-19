@@ -1,5 +1,5 @@
 import React from "react";
-import { HttpGet } from "../../utils/request";
+import { httpGet } from "../../utils/request";
 import {
   SEOGenerator,
   SEOGeneratorTypes
@@ -25,7 +25,7 @@ const UserPublicProfile = ({ postsResponse }) => {
 };
 
 UserPublicProfile.getInitialProps = async ctx => {
-  const postsResponse = await HttpGet(
+  const postsResponse = await httpGet(
     `posts?user=${ctx.query.username.substring(1)}`
   );
   if(postsResponse.statusCode === 404) {

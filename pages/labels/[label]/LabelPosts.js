@@ -1,5 +1,5 @@
 import React from "react";
-import { HttpGet } from "../../../utils/request";
+import { httpGet } from "../../../utils/request";
 import {SEOGenerator, SEOGeneratorTypes} from "../../../components/_SEO_/SEOGenerator";
 import PostListRenderer from '../../../components/PostListRenderer';
 
@@ -10,7 +10,7 @@ const LabelPosts = props => {
 };
 
 LabelPosts.getInitialProps = async ctx => {
-  const postsResponse = await HttpGet(`posts?label=${ctx.query.label}`);
+  const postsResponse = await httpGet(`posts?label=${ctx.query.label}`);
 
   return {
     postsResponse,

@@ -23,7 +23,7 @@ const headers = () => {
   return headersObj;
 };
 
-const HttpRequest = async (url, method, body) => {
+const httpRequest = async (url, method, body) => {
   const options = {
     method,
     headers: headers()
@@ -33,22 +33,22 @@ const HttpRequest = async (url, method, body) => {
   return await responseHandler(response);
 };
 
-export const HttpGet = async url => {
-  return await HttpRequest(url, METHOD.GET);
+export const httpGet = async url => {
+  return await httpRequest(url, METHOD.GET);
 };
 
-export const HttpPost = async (url, body) => {
-  return await HttpRequest(url, METHOD.POST, body);
+export const httpPost = async (url, body) => {
+  return await httpRequest(url, METHOD.POST, body);
 };
 
-export const HttpDelete = async url => {
-  return await HttpRequest(url, METHOD.DELETE);
+export const httpDelete = async url => {
+  return await httpRequest(url, METHOD.DELETE);
 };
 
-export const HttpPut = async (url, body) => {
-  return await HttpRequest(url, METHOD.PUT, body);
+export const httpPut = async (url, body) => {
+  return await httpRequest(url, METHOD.PUT, body);
 };
 
-export const HttpPatch = async (url, body) => {
-  return await HttpRequest(url, METHOD.PATCH, body);
+export const httpPatch = async (url, body) => {
+  return await httpRequest(url, METHOD.PATCH, body);
 };

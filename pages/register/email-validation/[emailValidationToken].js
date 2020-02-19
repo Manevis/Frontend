@@ -1,13 +1,13 @@
 import React from "react";
 import { parseCookies, setCookie, destroyCookie } from "nookies";
-import { HttpPost } from "../../../utils/request";
+import { httpPost } from "../../../utils/request";
 
 const EmailValidation = props => {
   return <div>validation</div>;
 };
 
 EmailValidation.getInitialProps = async ctx => {
-  const result = await HttpPost(`users/register/email-validation`, {
+  const result = await httpPost(`users/register/email-validation`, {
     emailValidationToken: ctx.query.emailValidationToken
   });
 

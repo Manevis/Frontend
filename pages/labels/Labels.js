@@ -1,16 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import { httpGet } from "../../utils/request";
 
-const Labels = props => {
-  return (
-    <div>
-      Labels
-    </div>
-  );
+const Labels = ({ labels }) => {
+  return <div>{labels.toString()}</div>;
 };
 
-Labels.propTypes = {
-  
-};
+Labels.getInitialProps = async ctx => {
+  const labels = await httpGet("labels");
+  console.log(labels);
 
+  return {
+    labels,
+    SEO: {
+      title: "لیبل نوشته‌های Autor",
+      description:
+        "مقالات و نوشته های فارسی جدید در موضوعات مختلف در زمینه علمی، آموزشی، کسب‌و‌کار، هنر و...",
+      keywords: "مقاله,آموزشی,کسب‌و‌کار,هنر"
+    }
+  };
+};
 export default Labels;

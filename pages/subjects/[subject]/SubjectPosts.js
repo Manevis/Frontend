@@ -1,5 +1,5 @@
 import React from "react";
-import { HttpGet } from "../../../utils/request";
+import { httpGet } from "../../../utils/request";
 import {SEOGenerator, SEOGeneratorTypes} from "../../../components/_SEO_/SEOGenerator";
 import PostListRenderer from '../../../components/PostListRenderer';
 
@@ -10,7 +10,7 @@ const SubjectPosts = props => {
 };
 
 SubjectPosts.getInitialProps = async ctx => {
-  const postsResponse = await HttpGet(`posts?subject=${ctx.query.subject}`);
+  const postsResponse = await httpGet(`posts?subject=${ctx.query.subject}`);
   return {
     postsResponse,
     SEO: SEOGenerator(postsResponse, SEOGeneratorTypes.SUBJECT),

@@ -1,5 +1,5 @@
-const generateAdditionalInfo = ({ status, statusText }) => ({
-  httpStatus: { status, statusText }
+const generateAdditionalInfo = ({ status: code, statusText: text }) => ({
+  httpStatus: { code, text }
 });
 
 export const responseHandler = async response => {

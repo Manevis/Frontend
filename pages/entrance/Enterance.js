@@ -3,7 +3,7 @@ import cs from "classnames";
 import styles from "./Enterance.module.scss";
 import Link from "next/link";
 import Input from "../../components/Design/Input";
-import { HttpPost } from "../../utils/request";
+import { httpPost } from "../../utils/request";
 import { useRouter } from "next/router";
 import { UserContext } from '../../components/_Context_/UserContext';
 
@@ -16,7 +16,7 @@ const Entrance = props => {
   const {setUser} = useContext(UserContext);
 
   const sendEmail = async () => {
-    const { userStatus } = await HttpPost("users", {
+    const { userStatus } = await httpPost("users", {
       email
     });
     setLoading(false);
@@ -24,7 +24,7 @@ const Entrance = props => {
   };
 
   const login = async () => {
-    const { token, user } = await HttpPost("users/login", {
+    const { token, user } = await httpPost("users/login", {
       username: email,
       password
     });
