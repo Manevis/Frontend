@@ -1,1 +1,1 @@
-export { default } from "./Enterance";
+export { default } from "./Entrance";

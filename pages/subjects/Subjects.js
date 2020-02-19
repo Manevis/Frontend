@@ -10,7 +10,6 @@ Subjects.propTypes = {};
 
 Subjects.getInitialProps = async ctx => {
   const subjects = await httpGet("subjects");
-  console.log(subjects);
 
   return {
     subjects,

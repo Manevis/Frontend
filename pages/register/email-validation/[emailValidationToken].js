@@ -1,6 +1,7 @@
 import React from "react";
-import { parseCookies, setCookie, destroyCookie } from "nookies";
+import { setCookie, destroyCookie } from "nookies";
 import { httpPost } from "../../../utils/request";
+import { myRouter } from "../../../utils/MyRouter";
 
 const EmailValidation = props => {
   return <div>validation</div>;
@@ -12,24 +13,15 @@ EmailValidation.getInitialProps = async ctx => {
   });
 
   if (!result.ok) {
-    if (ctx.res) {
-      destroyCookie(ctx, "validationToken");
-      ctx.res.writeHead(302, {
-        Location: "/"
-      });
-      ctx.res.end();
-    }
+    destroyCookie(ctx, "validationToken");
+    myRouter(ctx, "/");
   } else {
-    if (ctx.res) {
-      setCookie(ctx, "validationToken", result.validationToken, {
-        maxAge: 30 * 24 * 60 * 60,
-        path: "/"
-      });
-      ctx.res.writeHead(302, {
-        Location: "/register"
-      });
-      ctx.res.end();
-    }
+    setCookie(ctx, "validationToken", result.validationToken, {
+      maxAge: 30 * 24 * 60 * 60,
+      path: "/"
+    });
+
+    myRouter(ctx, "/register");
   }
 
   return result;

@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
 import cs from "classnames";
-import styles from "./Enterance.module.scss";
+import styles from "./Entrance.module.scss";
 import Link from "next/link";
 import Input from "../../components/Design/Input";
 import { httpPost } from "../../utils/request";
-import { useRouter } from "next/router";
-import { UserContext } from '../../components/_Context_/UserContext';
+import Router, { useRouter } from "next/router";
+import { UserContext } from "../../components/_Context_/UserContext";
+import { parseCookies, setCookie } from "nookies";
+import { myRouter } from "../../utils/MyRouter";
+import { setItem } from '../../utils/storage';
 
 const Entrance = props => {
   const router = useRouter();
@@ -13,12 +16,23 @@ const Entrance = props => {
   const [password, setPassword] = useState("");
   const [userStatus, setUserStatus] = useState(null);
   const [loading, setLoading] = useState(false);
-  const {setUser} = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   const sendEmail = async () => {
     const { userStatus } = await httpPost("users", {
       email
     });
+    setLoading(false);
+    setUserStatus(userStatus);
+  };
+
+  const resendActivationEmail = async () => {
+    const { userStatus } = await httpPost(
+      "users/register/resend-activation-email",
+      {
+        email
+      }
+    );
     setLoading(false);
     setUserStatus(userStatus);
   };
@@ -31,6 +45,10 @@ const Entrance = props => {
     setLoading(false);
     if (token) {
       setUser(user);
+      setCookie({}, "token", token, {
+        maxAge: 30 * 24 * 60 * 60,
+        path: "/"
+      });
       await router.replace("/");
     }
   };
@@ -77,6 +95,19 @@ const Entrance = props => {
           </>
         );
 
+      case "RECEIVED_ACTIVATION_EMAIL":
+        return (
+          <>
+            <div>
+              <p>
+                ایمیل فعال‌سازی برای شما ارسال شده است! لطفا Inbox خود را بررسی
+                نمایید.
+              </p>
+            </div>
+            <button type="submit">ارسال مجدد ایمیل</button>
+          </>
+        );
+
       default:
         return null;
     }
@@ -91,6 +122,9 @@ const Entrance = props => {
       }
       case "ACTIVE": {
         return login();
+      }
+      case "RECEIVED_ACTIVATION_EMAIL": {
+        return resendActivationEmail();
       }
     }
   };
@@ -114,6 +148,12 @@ const Entrance = props => {
 };
 
 Entrance.getInitialProps = async ctx => {
+  const { token } = parseCookies(ctx);
+
+  if (token) {
+    myRouter(ctx, "/");
+  }
+
   return {
     noLayout: true,
     SEO: {

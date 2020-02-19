@@ -7,6 +7,7 @@ import {
 import PostListRenderer from "../../components/PostListRenderer";
 import styles from "./UserPublicProfile.module.scss";
 import { fullName } from "../../utils/string";
+import { myRouter } from "../../utils/MyRouter";
 
 const UserPublicProfile = ({ postsResponse }) => {
   const { user } = postsResponse;
@@ -28,13 +29,8 @@ UserPublicProfile.getInitialProps = async ctx => {
   const postsResponse = await httpGet(
     `posts?user=${ctx.query.username.substring(1)}`
   );
-  if(postsResponse.statusCode === 404) {
-    if (ctx.res) {
-      ctx.res.writeHead(302, {
-        Location: "/"
-      });
-      ctx.res.end();
-    }
+  if (postsResponse.statusCode === 404) {
+    myRouter(ctx, "/");
   } else {
     return {
       postsResponse,

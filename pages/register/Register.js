@@ -3,6 +3,7 @@ import cs from "classnames";
 import { parseCookies } from "nookies";
 import styles from "./Register.module.scss";
 import { useRouter } from "next/router";
+import { myRouter } from "../../utils/MyRouter";
 
 const Register = props => {
   const router = useRouter();
@@ -27,12 +28,7 @@ Register.getInitialProps = async ctx => {
       }
     };
   } else {
-    if (ctx.res) {
-      ctx.res.writeHead(302, {
-        Location: "/entrance"
-      });
-      ctx.res.end();
-    }
+    myRouter(ctx, "/entrance");
   }
 };
 
