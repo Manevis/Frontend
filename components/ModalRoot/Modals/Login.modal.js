@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import ModalComponent from "../Modal";
 import { LOGIN_MODAL } from "../constans";
-import { Post } from "../../../utils/request";
+import { HttpPost } from "../../../utils/request";
 
 const LoginModal = props => {
   const [email, setEmail] = useState("");
@@ -13,7 +13,7 @@ const LoginModal = props => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const result = await Post("users", {
+    const result = await HttpPost("users", {
       email
     });
 

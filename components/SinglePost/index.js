@@ -3,7 +3,6 @@ import { URL } from "../../utils/request";
 import PostAuthorTopBar from "./PostAuthorTopBar";
 
 const SinglePost = ({ post }) => {
-  console.log(post);
   return (
     <div>
       <PostAuthorTopBar author={post.user} />

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import cs from "classnames";
+import { parseCookies } from "nookies";
 import styles from "./Register.module.scss";
-import Link from "next/link";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
 const Register = props => {
   const router = useRouter();
@@ -16,12 +16,24 @@ const Register = props => {
 };
 
 Register.getInitialProps = async ctx => {
-  return {
-    noLayout: true,
-    SEO: {
-      title: "تکمیل ثبت نام",
+  const { validationToken } = parseCookies(ctx);
+
+  if (validationToken) {
+    return {
+      noLayout: true,
+      validationToken,
+      SEO: {
+        title: "تکمیل ثبت نام"
+      }
+    };
+  } else {
+    if (ctx.res) {
+      ctx.res.writeHead(302, {
+        Location: "/entrance"
+      });
+      ctx.res.end();
     }
-  };
+  }
 };
 
 export default Register;

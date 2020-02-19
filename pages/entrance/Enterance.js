@@ -3,7 +3,7 @@ import cs from "classnames";
 import styles from "./Enterance.module.scss";
 import Link from "next/link";
 import Input from "../../components/Design/Input";
-import { Post } from "../../utils/request";
+import { HttpPost } from "../../utils/request";
 import { useRouter } from "next/router";
 import { UserContext } from '../../components/_Context_/UserContext';
 
@@ -16,7 +16,7 @@ const Entrance = props => {
   const {setUser} = useContext(UserContext);
 
   const sendEmail = async () => {
-    const { userStatus } = await Post("users", {
+    const { userStatus } = await HttpPost("users", {
       email
     });
     setLoading(false);
@@ -24,7 +24,7 @@ const Entrance = props => {
   };
 
   const login = async () => {
-    const { token, user } = await Post("users/login", {
+    const { token, user } = await HttpPost("users/login", {
       username: email,
       password
     });
@@ -37,7 +37,7 @@ const Entrance = props => {
 
   useEffect(() => {
     if (userStatus === "CONFIRMED_EMAIL") {
-      router.replace("/registration/register");
+      router.replace("/register");
     }
   }, [userStatus]);
 

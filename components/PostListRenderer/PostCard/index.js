@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import { URL } from "../../../utils/request";
 import { postSlug } from "../../../utils/hashId";
 import Link from "next/link";
-import Label from "../../Label";
+import Label from "../../Design/Label";
 
 const PostCard = ({ post }) => {
   return (

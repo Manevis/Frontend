@@ -7,7 +7,6 @@ import { fullName } from "../../../utils/string";
 
 const TopMenu = () => {
   const { user } = React.useContext(UserContext);
-  console.log(user);
   return (
     <header>
       <nav className={cs(styles.topMenu, "container-fluid")}>
