@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { setItem } from "../../utils/storage";
+import { removeItem, setItem } from "../../utils/storage";
 
 export const UserContext = React.createContext(null);
 
@@ -7,7 +7,12 @@ const UserProvider = ({ children }) => {
   const [user, setUserState] = useState(null);
 
   const setUser = receivedUser => {
-    setItem("user", receivedUser);
+    if (receivedUser) {
+      setItem("user", receivedUser);
+    } else {
+      removeItem("user");
+    }
+
     setUserState(receivedUser);
   };
 

@@ -5,6 +5,7 @@ import { URL } from "../../../utils/request";
 import { postSlug } from "../../../utils/hashId";
 import Link from "next/link";
 import Label from "../../Design/Label";
+import {imgFile} from "../../../utils/img";
 
 const PostCard = ({ post }) => {
   return (
@@ -15,7 +16,7 @@ const PostCard = ({ post }) => {
           as={`/@${post.user.username}/${postSlug(post.title, post.id)}`}
         >
           <a>
-            <img src={URL(`photos/${post.cover}/file`)} alt={post.title} />
+            <img src={imgFile(post.cover)} alt={post.title} />
           </a>
         </Link>
         {post.subject && (

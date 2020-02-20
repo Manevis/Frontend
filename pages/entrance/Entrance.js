@@ -8,7 +8,7 @@ import Router, { useRouter } from "next/router";
 import { UserContext } from "../../components/_Context_/UserContext";
 import { parseCookies, setCookie } from "nookies";
 import { myRouter } from "../../utils/MyRouter";
-import { setItem } from '../../utils/storage';
+import { setItem } from "../../utils/storage";
 
 const Entrance = props => {
   const router = useRouter();
@@ -19,11 +19,20 @@ const Entrance = props => {
   const { setUser } = useContext(UserContext);
 
   const sendEmail = async () => {
-    const { userStatus } = await httpPost("users", {
+    const { userStatus, validationToken } = await httpPost("users", {
       email
     });
     setLoading(false);
-    setUserStatus(userStatus);
+
+    if (validationToken) {
+      setCookie({}, "validationToken", validationToken, {
+        maxAge: 30 * 24 * 60 * 60,
+        path: "/"
+      });
+      await router.replace("/register");
+    } else {
+      setUserStatus(userStatus);
+    }
   };
 
   const resendActivationEmail = async () => {
@@ -52,12 +61,6 @@ const Entrance = props => {
       await router.replace("/");
     }
   };
-
-  useEffect(() => {
-    if (userStatus === "CONFIRMED_EMAIL") {
-      router.replace("/register");
-    }
-  }, [userStatus]);
 
   const renderForm = () => {
     switch (userStatus) {

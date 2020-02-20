@@ -2,7 +2,7 @@ import unfetch from "isomorphic-unfetch";
 import { parseCookies } from "nookies";
 import { responseHandler } from "./responseHandler";
 
-export const baseURL = "http://localhost:8888/api/";
+export const baseURL = "http://192.168.30.121:8888/api/";
 export const URL = url => (url.startsWith("http") ? url : `${baseURL}${url}`);
 
 const METHOD = {
