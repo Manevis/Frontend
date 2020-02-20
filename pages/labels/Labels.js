@@ -7,7 +7,6 @@ const Labels = ({ labels }) => {
 
 Labels.getInitialProps = async ctx => {
   const labels = await httpGet("labels");
-  console.log(labels);
 
   return {
     labels,
