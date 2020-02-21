@@ -1,7 +1,7 @@
 import React from "react";
 import { httpGet } from "../utils/request";
 import PostListRenderer from "../components/PostListRenderer";
-import MainPageSidebar from '../components/MainPageSidebar';
+import MainPageSidebar from "../components/MainPageSidebar";
 
 const Home = props => {
   return (
@@ -16,10 +16,11 @@ const Home = props => {
   );
 };
 
-Home.getInitialProps = async () => {
+Home.getInitialProps = async ctx => {
+  console.log(ctx);
   const postsResponse = await httpGet("posts");
   return {
-    postsResponse,
+    postsResponse
   };
 };
 

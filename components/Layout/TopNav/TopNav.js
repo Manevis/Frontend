@@ -8,6 +8,7 @@ import { httpGet } from "../../../utils/request";
 import { getItem } from "../../../utils/storage";
 import { imgFile } from "../../../utils/img";
 import { destroyCookie } from "nookies";
+import Logo from '../../Logo';
 
 const TopMenu = () => {
   const { user, setUser } = React.useContext(UserContext);
@@ -28,32 +29,48 @@ const TopMenu = () => {
 
   const logout = () => {
     setUser(null);
-    destroyCookie(null, "token");
   };
 
   useEffect(getUserProfile, []);
 
   return (
-    <header>
-      <nav className={cs(styles.topMenu, "container-fluid")}>
-        <Link href="/">
-          <a>
-            <img src="/logo.png" alt="Autor.ir" />
-          </a>
-        </Link>
+    <header className={cs(styles.topMenu, "container-fluid")}>
+      <div className="row">
+        <nav className="container">
+          <div className="row">
+            <div className="col">
+              <Link href="/">
+                <a>
+                  <Logo className={styles.logo} />
+                </a>
+              </Link>
+            </div>
 
-        {user ? (
-          <img
-            src={imgFile(user.avatar) || "/profile.png"}
-            alt={fullName(user)}
-            onClick={logout}
-          />
-        ) : (
-          <Link href="/entrance">
-            <a>ورود / ثبت‌نام</a>
-          </Link>
-        )}
-      </nav>
+            <div className="col">
+              {user ? (
+                <img
+                  src={imgFile(user.avatar) || "/profile.png"}
+                  alt={fullName(user)}
+                  onClick={logout}
+                />
+              ) : (
+                <Link
+                  href={{
+                    pathname: "/entrance",
+                    query: {
+                      backTo: process.browser
+                        ? encodeURI(window.location.pathname)
+                        : "/"
+                    }
+                  }}
+                >
+                  <a>ورود / ثبت‌نام</a>
+                </Link>
+              )}
+            </div>
+          </div>
+        </nav>
+      </div>
     </header>
   );
 };

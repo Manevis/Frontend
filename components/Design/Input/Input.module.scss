@@ -1,7 +1,12 @@
 .input {
+  transition: .2s;
   border-radius: 5px;
   box-shadow: none;
-  border: none;
+  border: solid 1px #ababab;
+
+  &:focus {
+    background: #f9f7f7;
+  }
 }
 
 .fullWidth {

@@ -1,12 +1,27 @@
 @import "variables";
 
 body {
-    background-color: $background_color_main;
-    font-family: Tahoma, sans-serif;
-    direction: rtl;
-    text-align: inherit;
+  background-color: $background_color_main;
+  font-family: Sahel, serif;
+  direction: rtl;
+  text-align: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
 }
 
 .vh-100 {
-    height: 100vh;
+  height: 100vh;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.h-fit {
+  height: fit-content;
 }

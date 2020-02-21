@@ -1,14 +1,13 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import cs from "classnames";
 import styles from "./Entrance.module.scss";
 import Link from "next/link";
 import Input from "../../components/Design/Input";
 import { httpPost } from "../../utils/request";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { UserContext } from "../../components/_Context_/UserContext";
 import { parseCookies, setCookie } from "nookies";
 import { myRouter } from "../../utils/MyRouter";
-import { setItem } from "../../utils/storage";
 
 const Entrance = props => {
   const router = useRouter();
@@ -58,7 +57,9 @@ const Entrance = props => {
         maxAge: 30 * 24 * 60 * 60,
         path: "/"
       });
-      await router.replace("/");
+      await router.replace(
+        router.query.backTo ? decodeURI(router.query.backTo) : "/"
+      );
     }
   };
 
@@ -133,17 +134,26 @@ const Entrance = props => {
   };
 
   return (
-    <div className={cs(styles.root, "container")}>
-      <div className="row justify-content-center align-items-center vh-100 flex-column">
-        <div className={cs(styles.logo, "mb-5")}>
-          <Link href="/">
-            <a>
-              <img src="/logo.png" alt="Autor.ir" />
-            </a>
-          </Link>
-        </div>
-        <div className={cs("col-md-6 col-sm-12 col-lg-4", styles.entranceBox)}>
-          <form onSubmit={handleSubmit}>{renderForm()}</form>
+    <div className={cs(styles.root, "container-fluid")}>
+      <div className="row h-100 justify-content-center align-items-center">
+        <div
+          className={cs(
+            "col-md-10 col-sm-12 col-lg-8 col-xl-6 h-fit",
+            styles.entranceBox
+          )}
+        >
+          <div className="row">
+            <div className="col-6 input-row">
+              <form onSubmit={handleSubmit}>{renderForm()}</form>
+            </div>
+            <div className="col-6 image-section">
+              <Link href="/">
+                <a>
+                  <img src="/logo-with-text.png" alt="Autor.ir" />
+                </a>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>

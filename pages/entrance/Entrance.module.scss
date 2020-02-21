@@ -8,8 +8,34 @@
 
 .entranceBox {
   background: white;
-}
+  border-radius: 5px;
+  box-shadow: 0 0 5px 0 rgba(128, 128, 128, 0.4);
+  text-align: center;
 
-.loginInput {
-  width: 100%;
+  :global {
+    form {
+      width: 100%;
+      height: 100%;
+    }
+
+    .image-section {
+      border-right: dotted 1px #dfdfdf;;
+    }
+
+    .col-6 {
+      padding: 40px 10px;
+    }
+
+    .input-row form {
+      display: flex;
+      justify-content: center;
+      flex-flow: column;
+
+      & input {
+        padding: 10px 5px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+    }
+  }
 }
