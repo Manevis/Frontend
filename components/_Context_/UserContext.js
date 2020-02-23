@@ -1,22 +1,34 @@
-import React, { useState } from "react";
-import { removeItem, setItem } from "../../utils/storage";
-import { destroyCookie } from "nookies";
+import React, { useState, useLayoutEffect } from "react";
+import { clearStorage, getItem, setItem } from "../../utils/storage";
+import { removeAllCookies } from "../../utils/cookie";
+import { setCookie } from "nookies";
 
 export const UserContext = React.createContext(null);
 
 const UserProvider = ({ children }) => {
   const [user, setUserState] = useState(null);
 
-  const setUser = receivedUser => {
+  const setUser = (receivedUser, token) => {
     if (receivedUser) {
       setItem("user", receivedUser);
+      if (token) {
+        setCookie({}, "token", token, {
+          maxAge: 30 * 24 * 60 * 60,
+          path: "/"
+        });
+      }
     } else {
-      removeItem("user");
-      destroyCookie(null, "token");
+      removeAllCookies();
+      clearStorage();
     }
 
     setUserState(receivedUser);
   };
+
+  useLayoutEffect(() => {
+    const user = getItem("user");
+    if (user) setUser(user);
+  }, []);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

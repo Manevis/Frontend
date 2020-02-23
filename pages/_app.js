@@ -9,19 +9,21 @@ import UserProvider from "../components/_Context_/UserContext";
 import ModalProvider from "../components/_Context_/ModalContext";
 import SEO from "../components/_SEO_";
 
-const App = ({ Component, pageProps }) => (
-  <UserProvider>
-    <ModalProvider>
-      <SEO seo={pageProps.SEO} />
-      {pageProps.noLayout ? (
-        <Component {...pageProps} />
-      ) : (
-        <Layout>
+const App = ({ Component, pageProps, router }) => {
+  return (
+    <UserProvider>
+      <ModalProvider>
+        <SEO seo={pageProps.SEO} />
+        {pageProps.noLayout ? (
           <Component {...pageProps} />
-        </Layout>
-      )}
-    </ModalProvider>
-  </UserProvider>
-);
+        ) : (
+          <Layout backTo={{ route: router.route, asPath: router.asPath }}>
+            <Component {...pageProps} />
+          </Layout>
+        )}
+      </ModalProvider>
+    </UserProvider>
+  );
+};
 
-export default withProgress(1000)(App)
+export default withProgress(1000)(App);

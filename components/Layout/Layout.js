@@ -1,13 +1,13 @@
 import React from "react";
-import TopMenu from "./TopNav";
+import TopNav from "./TopNav";
 import Footer from "./Footer";
 import ModalRoot from "../ModalRoot";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, backTo }) => {
   return (
     <>
       <ModalRoot />
-      <TopMenu />
+      <TopNav backTo={backTo} />
       <main>{children}</main>
       <Footer />
     </>

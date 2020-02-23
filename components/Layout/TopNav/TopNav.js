@@ -1,22 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
+import PropTypes from "prop-types";
 import Link from "next/link";
 import cs from "classnames";
 import styles from "./styles.module.scss";
 import { UserContext } from "../../_Context_/UserContext";
 import { fullName } from "../../../utils/string";
 import { httpGet } from "../../../utils/request";
-import { getItem } from "../../../utils/storage";
+import { getItem, setItem } from "../../../utils/storage";
 import { imgFile } from "../../../utils/img";
-import { destroyCookie } from "nookies";
-import Logo from '../../Logo';
+import Logo from "../../Logo";
+import { parseCookies } from "nookies";
 
-const TopMenu = () => {
+const TopNav = ({ backTo }) => {
   const { user, setUser } = React.useContext(UserContext);
 
   const getUserProfile = () => {
     const storageUser = getItem("user");
     if (storageUser) {
-      setUser(storageUser);
       httpGet("users/profile").then(receivedUser => {
         if (receivedUser.httpStatus.code === 200) {
           setUser(receivedUser);
@@ -54,17 +54,14 @@ const TopMenu = () => {
                   onClick={logout}
                 />
               ) : (
-                <Link
-                  href={{
-                    pathname: "/entrance",
-                    query: {
-                      backTo: process.browser
-                        ? encodeURI(window.location.pathname)
-                        : "/"
-                    }
-                  }}
-                >
-                  <a>ورود / ثبت‌نام</a>
+                <Link href="/entrance">
+                  <a
+                    onClick={() => {
+                      setItem("backTo", backTo);
+                    }}
+                  >
+                    ورود / ثبت‌نام
+                  </a>
                 </Link>
               )}
             </div>
@@ -75,4 +72,8 @@ const TopMenu = () => {
   );
 };
 
-export default TopMenu;
+TopNav.propTypes = {
+  backTo: PropTypes.object.isRequired
+};
+
+export default TopNav;

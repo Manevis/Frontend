@@ -17,7 +17,6 @@ const Home = props => {
 };
 
 Home.getInitialProps = async ctx => {
-  console.log(ctx);
   const postsResponse = await httpGet("posts");
   return {
     postsResponse

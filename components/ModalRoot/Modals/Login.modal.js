@@ -16,8 +16,6 @@ const LoginModal = props => {
     const result = await httpPost("users", {
       email
     });
-
-    console.log(result);
   };
 
   return (

@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import { UserContext } from "../../components/_Context_/UserContext";
 import { parseCookies, setCookie } from "nookies";
 import { myRouter } from "../../utils/MyRouter";
+import { redirectAfterLogin } from "../../utils/redirect";
 
 const Entrance = props => {
   const router = useRouter();
@@ -52,14 +53,8 @@ const Entrance = props => {
     });
     setLoading(false);
     if (token) {
-      setUser(user);
-      setCookie({}, "token", token, {
-        maxAge: 30 * 24 * 60 * 60,
-        path: "/"
-      });
-      await router.replace(
-        router.query.backTo ? decodeURI(router.query.backTo) : "/"
-      );
+      setUser(user, token);
+      redirectAfterLogin(router);
     }
   };
 
