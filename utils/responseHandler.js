@@ -1,10 +1,20 @@
+import { myRouter } from "./MyRouter";
+
 const generateAdditionalInfo = ({ status: code, statusText: text }) => ({
   httpStatus: { code, text }
 });
 
-export const responseHandler = async response => {
-  const additionalInfo = generateAdditionalInfo(response);
-  const result = await response.json();
+export const errorHandler = async (error, ctx) => {
+  const redirectPath = error.status ? `/errors/${error.status}` : "/errors/500";
+  await myRouter(ctx, redirectPath);
+};
 
-  return { ...result, ...additionalInfo };
+export const responseHandler = async (response, ctx) => {
+  if (response.ok) {
+    const additionalInfo = generateAdditionalInfo(response);
+    const result = await response.json();
+    return { ...result, ...additionalInfo };
+  } else {
+    await errorHandler(response, ctx);
+  }
 };

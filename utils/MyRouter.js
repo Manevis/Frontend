@@ -1,12 +1,12 @@
 import Router from "next/router";
 
-export const myRouter = (ctx, Location, statusCode = 302) => {
-  if (ctx.res) {
+export const myRouter = async (ctx, location, statusCode = 302) => {
+  if (ctx && ctx.res) {
     ctx.res.writeHead(statusCode, {
-      Location
+      Location: encodeURI(location),
     });
     ctx.res.end();
   } else {
-    Router.replace("/");
+    await Router.push(location);
   }
 };

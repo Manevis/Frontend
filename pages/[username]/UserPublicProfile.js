@@ -28,18 +28,14 @@ const UserPublicProfile = ({ postsResponse }) => {
 UserPublicProfile.getInitialProps = async ctx => {
   if (ctx.query.username.startsWith("@")) {
     const postsResponse = await httpGet(
-      `posts?user=${ctx.query.username.substring(1)}`
+      `posts?user=${ctx.query.username.substring(1)}`, ctx
     );
-    if (postsResponse.statusCode === 404) {
-      myRouter(ctx, "/");
-    } else {
-      return {
-        postsResponse,
-        SEO: SEOGenerator(postsResponse, SEOGeneratorTypes.USER)
-      };
-    }
+    return {
+      postsResponse,
+      SEO: SEOGenerator(postsResponse, SEOGeneratorTypes.USER)
+    };
   } else {
-    myRouter(ctx, "/");
+    await myRouter(ctx, "/");
   }
 };
 

@@ -9,7 +9,6 @@ import { httpGet } from "../../../utils/request";
 import { getItem, setItem } from "../../../utils/storage";
 import { imgFile } from "../../../utils/img";
 import Logo from "../../Logo";
-import { parseCookies } from "nookies";
 
 const TopNav = ({ backTo }) => {
   const { user, setUser } = React.useContext(UserContext);

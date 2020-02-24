@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { clearStorage, getItem, setItem } from "../../utils/storage";
 import { removeAllCookies } from "../../utils/cookie";
 import { setCookie } from "nookies";
@@ -25,7 +25,7 @@ const UserProvider = ({ children }) => {
     setUserState(receivedUser);
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const user = getItem("user");
     if (user) setUser(user);
   }, []);

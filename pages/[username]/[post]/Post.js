@@ -18,18 +18,18 @@ const Post = props => {
 };
 
 Post.getInitialProps = async ctx => {
-  try {
-    const post = await httpGet(`posts/${postId(ctx.query.post)}`);
+  if (!isNaN(postId(ctx.query.post))) {
+    const post = await httpGet(`posts/${postId(ctx.query.post)}`, ctx);
     const slug = postSlug(post.title, post.id);
     if (slug !== ctx.query.post) {
-      myRouter(ctx, `/@${post.user.username}/${slug}`, 301);
+      await myRouter(ctx, `/@${post.user.username}/${slug}`, 301);
     }
     return {
       post,
       SEO: SEOGenerator(post, SEOGeneratorTypes.POST)
     };
-  } catch {
-    myRouter(ctx, "/not-found");
+  } else {
+    await myRouter(ctx, "/errors/404");
   }
 };
 

@@ -10,7 +10,7 @@ const SubjectPosts = props => {
 };
 
 SubjectPosts.getInitialProps = async ctx => {
-  const postsResponse = await httpGet(`posts?subject=${ctx.query.subject}`);
+  const postsResponse = await httpGet(`posts?subject=${ctx.query.subject}`, ctx);
   return {
     postsResponse,
     SEO: SEOGenerator(postsResponse, SEOGeneratorTypes.SUBJECT),

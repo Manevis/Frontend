@@ -14,7 +14,7 @@ export const postSlug = (postTitle, postId) => {
 };
 
 export const postId = slug => {
-  const slugArr = slug.split('-');
-
-  return decodeId(slugArr.reverse()[0]);
+  const slugArr = slug.split("-");
+  const reversed = slugArr.reverse();
+  return decodeId(reversed[0])[0];
 };

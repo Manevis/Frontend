@@ -1,6 +1,6 @@
 import unfetch from "isomorphic-unfetch";
 import { parseCookies } from "nookies";
-import { responseHandler } from "./responseHandler";
+import { errorHandler, responseHandler } from "./responseHandler";
 
 export const baseURL = "http://localhost:8888/api/";
 export const URL = url => (url.startsWith("http") ? url : `${baseURL}${url}`);
@@ -23,32 +23,36 @@ const headers = () => {
   return headersObj;
 };
 
-const httpRequest = async (url, method, body) => {
+const httpRequest = async (url, method, body, ctx) => {
   const options = {
     method,
     headers: headers()
   };
   if (body) options["body"] = JSON.stringify(body);
-  const response = await unfetch(URL(url), options);
-  return await responseHandler(response);
+  try {
+    const response = await unfetch(URL(url), options);
+    return await responseHandler(response, ctx);
+  } catch (e) {
+    await errorHandler(e, ctx);
+  }
 };
 
-export const httpGet = async url => {
-  return await httpRequest(url, METHOD.GET);
+export const httpGet = async (url, ctx) => {
+  return await httpRequest(url, METHOD.GET, null, ctx);
 };
 
-export const httpPost = async (url, body) => {
-  return await httpRequest(url, METHOD.POST, body);
+export const httpPost = async (url, body, ctx) => {
+  return await httpRequest(url, METHOD.POST, body, ctx);
 };
 
-export const httpDelete = async url => {
-  return await httpRequest(url, METHOD.DELETE);
+export const httpDelete = async (url, ctx) => {
+  return await httpRequest(url, METHOD.DELETE, null, ctx);
 };
 
-export const httpPut = async (url, body) => {
-  return await httpRequest(url, METHOD.PUT, body);
+export const httpPut = async (url, body, ctx) => {
+  return await httpRequest(url, METHOD.PUT, body, ctx);
 };
 
-export const httpPatch = async (url, body) => {
-  return await httpRequest(url, METHOD.PATCH, body);
+export const httpPatch = async (url, body, ctx) => {
+  return await httpRequest(url, METHOD.PATCH, body, ctx);
 };
