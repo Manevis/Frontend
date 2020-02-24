@@ -7,6 +7,12 @@ body {
   text-align: inherit;
 }
 
+a,
+a:hover {
+  text-decoration: inherit;
+  color: inherit;
+}
+
 input:focus,
 select:focus,
 textarea:focus,

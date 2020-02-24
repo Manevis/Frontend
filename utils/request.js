@@ -2,7 +2,7 @@ import unfetch from "isomorphic-unfetch";
 import { parseCookies } from "nookies";
 import { errorHandler, responseHandler } from "./responseHandler";
 
-export const baseURL = "http://localhost:8888/api/";
+export const baseURL = "http://192.168.1.105:8888/api/";
 export const URL = url => (url.startsWith("http") ? url : `${baseURL}${url}`);
 
 const METHOD = {
@@ -17,7 +17,7 @@ const headers = () => {
   const headersObj = {};
   const { token } = parseCookies() || {};
   headersObj["Content-Type"] = "application/json";
-  headersObj["Application"] = "Autor";
+  headersObj["Application"] = "Manevis";
   if (token) headersObj["Authorization"] = `Bearer ${token}`;
 
   return headersObj;

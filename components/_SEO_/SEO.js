@@ -5,11 +5,11 @@ import PropTypes from "prop-types";
 const SEO = ({ seo }) => {
   return (
     <Head>
-      <title>{seo.title || "Autor.iR"}</title>
+      <title>{seo.title || "مانویس"}</title>
       <meta
         name="description"
         content={
-          seo.description || "مقالات مفید به زبان فارسی در وب سایت Autor.ir"
+          seo.description || "مقالات مفید به زبان فارسی در وب سایت مانویس"
         }
       />
       <meta name="keywords" content={seo.keywords} />

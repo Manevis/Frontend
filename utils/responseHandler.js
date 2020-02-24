@@ -10,7 +10,7 @@ export const errorHandler = async (error, ctx) => {
 };
 
 export const responseHandler = async (response, ctx) => {
-  if (response.ok) {
+  if (response.ok || response.status === 401) {
     const additionalInfo = generateAdditionalInfo(response);
     const result = await response.json();
     return { ...result, ...additionalInfo };

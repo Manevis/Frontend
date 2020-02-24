@@ -6,7 +6,7 @@ import Input from "../../components/Design/Input";
 import { httpPost } from "../../utils/request";
 import { useRouter } from "next/router";
 import { UserContext } from "../../components/_Context_/UserContext";
-import { parseCookies, setCookie } from "nookies";
+import { destroyCookie, parseCookies, setCookie } from "nookies";
 import { myRouter } from "../../utils/MyRouter";
 import { redirectAfterLogin } from "../../utils/redirect";
 
@@ -144,7 +144,7 @@ const Entrance = props => {
             <div className="col-6 image-section">
               <Link href="/">
                 <a>
-                  <img src="/logo-with-text.png" alt="Autor.ir" />
+                  <img src="/logo-with-text.png" alt="مانویس" />
                 </a>
               </Link>
             </div>
@@ -159,15 +159,15 @@ Entrance.getInitialProps = async ctx => {
   const { token } = parseCookies(ctx);
 
   if (token) {
-    myRouter(ctx, "/");
+    destroyCookie(ctx, "token");
   }
 
   return {
     noLayout: true,
     SEO: {
-      title: "ورود / ثبت نام در Autor.ir",
+      title: "ورود / ثبت نام در مانویس",
       description:
-        "ثبت نام و ورود به سایت Autor.ir جهت نوشتن مقاله و مطالب مفید فارسی",
+        "ثبت نام و ورود به سایت مانویس جهت نوشتن مقاله و مطالب مفید فارسی",
       keywords: "ورود,ثبت نام,نویسندگی"
     }
   };

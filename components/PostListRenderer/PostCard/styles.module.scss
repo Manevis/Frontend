@@ -12,6 +12,8 @@
   position: relative;
 
   img {
+    transition: 0.3s;
+    filter: grayscale(0.3);
     object-fit: cover;
     min-width: 100%;
     min-height: 100%;
@@ -19,6 +21,10 @@
     height: auto;
     max-width: 100%;
     max-height: 100%;
+
+    &:hover {
+      filter: grayscale(0);
+    }
   }
 }
 
@@ -34,4 +40,31 @@
 
 .labels {
   text-align: left;
+}
+
+.postDetailOnImage {
+  position: absolute;
+  bottom: 30px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 10px;
+  border-radius: 5px 0 0 5px;
+
+  a h1 {
+    color: #2196f3;
+    transition: 0.2s;
+
+    &:hover {
+      color: #1086e3;
+    }
+  }
+
+  div {
+    font-size: 11px;
+
+    a {
+      font-size: 13px;
+      color: #1b82d5;
+    }
+  }
 }

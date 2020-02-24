@@ -5,7 +5,8 @@ import { URL } from "../../../utils/request";
 import { postSlug } from "../../../utils/hashId";
 import Link from "next/link";
 import Label from "../../Design/Label";
-import {imgFile} from "../../../utils/img";
+import { imgFile } from "../../../utils/img";
+import { fullName } from '../../../utils/string';
 
 const PostCard = ({ post }) => {
   return (
@@ -24,13 +25,30 @@ const PostCard = ({ post }) => {
             <a className={styles.subject}>{post.subject.name}</a>
           </Link>
         )}
+        <div className={styles.postDetailOnImage}>
+          <Link
+            href="/[username]/[post]"
+            as={`/@${post.user.username}/${postSlug(post.title, post.id)}`}
+          >
+            <a>
+              <h1>{post.title}</h1>
+            </a>
+          </Link>
+          <div>
+            <span>نویسنده: </span>
+            <Link href="/[username]" as={`/@${post.user.username}`}>
+              <a>{fullName(post.user)}</a>
+            </Link>
+          </div>
+        </div>
       </div>
-      <h1>{post.title}</h1>
       <p>{post.content}</p>
 
       {post.labels.length > 0 && (
         <div className={styles.labels}>
-          {post.labels.map(label => <Label key={label.id} label={label} />)}
+          {post.labels.map(label => (
+            <Label key={label.id} label={label} />
+          ))}
         </div>
       )}
     </article>

@@ -5,7 +5,7 @@ const Logo = ({ withText, ...otherProps }) => {
   return (
     <img
       src={withText ? "/logo-with-text.png" : "/logo.png"}
-      alt="Autor.ir"
+      alt="مانویس"
       {...otherProps}
     />
   );

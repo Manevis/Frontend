@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { httpGet } from "../../utils/request";
 
 const Subjects = ({ subjects }) => {
@@ -14,7 +13,7 @@ Subjects.getInitialProps = async ctx => {
   return {
     subjects,
     SEO: {
-      title: "موضوعات نوشته‌های Autor",
+      title: "موضوعات نوشته‌های مانویس",
       description:
         "مقالات و نوشته های فارسی جدید در موضوعات مختلف در زمینه علمی، آموزشی، کسب‌و‌کار، هنر و...",
       keywords: "مقاله,آموزشی,کسب‌و‌کار,هنر"

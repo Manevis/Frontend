@@ -1,6 +1,6 @@
 import Hashids from "hashids/dist/hashids";
 
-const hashids = new Hashids("Autor.iR");
+const hashids = new Hashids("Manevis.com");
 
 export const encodeId = id => hashids.encode(id);
 

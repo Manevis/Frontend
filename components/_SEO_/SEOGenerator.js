@@ -15,7 +15,7 @@ const userPostsSEO = data => ({
 });
 
 const postSEO = data => ({
-  title: `${data.title} - نوشته ${fullName(data.user)}`,
+  title: `${data.title} - نوشته ${fullName(data.user)} در مانویس`,
   keywords: data.labels?.map(label => label.name).toString(),
   description: data.content.substring(0, 100),
   author: fullName(data.user),
