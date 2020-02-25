@@ -27,6 +27,7 @@ const TopNav = ({ backTo }) => {
   };
 
   const logout = () => {
+    setItem("logout", Date.now());
     setUser(null);
   };
 

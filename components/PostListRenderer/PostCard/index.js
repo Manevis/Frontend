@@ -42,15 +42,18 @@ const PostCard = ({ post }) => {
           </div>
         </div>
       </div>
-      <p>{post.content}</p>
 
-      {post.labels.length > 0 && (
-        <div className={styles.labels}>
-          {post.labels.map(label => (
-            <Label key={label.id} label={label} />
-          ))}
-        </div>
-      )}
+      <div className={styles.contentBox}>
+        <p>{post.content}</p>
+
+        {post.labels.length > 0 && (
+          <div className={styles.labels}>
+            {post.labels.map(label => (
+              <Label key={label.id} label={label} />
+            ))}
+          </div>
+        )}
+      </div>
     </article>
   );
 };

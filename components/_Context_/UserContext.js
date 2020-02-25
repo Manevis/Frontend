@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { clearStorage, getItem, setItem } from "../../utils/storage";
+import {
+  clearStorage,
+  getItem,
+  removeItem,
+  setItem
+} from "../../utils/storage";
 import { removeAllCookies } from "../../utils/cookie";
 import { setCookie } from "nookies";
 
@@ -25,7 +30,17 @@ const UserProvider = ({ children }) => {
     setUserState(receivedUser);
   };
 
+  const listenToLogoutEvent = () => {
+    window.addEventListener("storage", () => {
+      if (getItem("logout")) {
+        setUser(null);
+        removeItem("logout");
+      }
+    });
+  };
+
   useEffect(() => {
+    listenToLogoutEvent();
     const user = getItem("user");
     if (user) setUser(user);
   }, []);
